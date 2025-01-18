@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+body{
+    display: grid;
+    place-items: center;
+    top: 50%;
+    transform: translateY(50px);
+}
+.board{
+    width: 453px;
+    height: 453px;
+    background-color: red;
+    border: 3px solid silver;
+    display: flex;
+    flex-wrap: wrap;
+}
+.board div{
+    /* Il y a 9 divs */
+    width: 150px;
+    height: 150px;
+    border: 0.5px solid silver;
+    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .board div div{
+    width: 50px;
+    height: 50px;
+} */
