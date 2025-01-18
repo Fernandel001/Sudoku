@@ -146,7 +146,7 @@ function solveSudoku(board){
                }
                // Here lies the backtracking
 // if (recurse(emptySpaceIndex+1) does not work, restaurate after a failure board[row][col] to'.' so that another number will be tested
-
+                return false
                board[row][col]=empty
 
         }
