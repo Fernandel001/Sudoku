@@ -1,6 +1,6 @@
 
 window.onload=function(){
-setTimeout(GameStart,1000)
+GameStart()
 ButtonPut();
 solveSudoku(board);
 }
