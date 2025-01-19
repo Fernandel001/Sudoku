@@ -1,29 +1,29 @@
 
 window.onload=function(){
-GameStart()
+setTimeout(GameStart,1000)
 ButtonPut();
 solveSudoku(board);
 }
 const board = [
     ["5", "3", ".", "6", "7", "8", "9", "1", "2"],
-    ["6"," 7", "2", "1", "9", "5", ".", "4", "8"],
+    ["6","7", "2", "1", "9", "5", ".", "4", "8"],
     ["1", "9", "8", "3", ".", "2", "5", "6", "7"],
     [".", "5", "9", "7"," 6", "1", "4", "2", "."],
-    ["4"," 2", "6"," 8", "."," 3"," 7", "9", "1"],
-    ["7", "1", "3", ".", "2", "4", "8", "."," 6"],
+    ["4","2", "6","8", ".","3","7", "9", "1"],
+    ["7", "1", "3", ".", "2", "4", "8", ".","6"],
     ["9", "6", "1"," 5",".", "7", "2", "8", "4"],
-    ["2", "8", ".", "4"," 1", "9", "6", "3"," 5"],
+    ["2", "8", ".", "4"," 1", "9", "6", "3","5"],
     ["3", "4"," 5", "2", "8", "6"," 1", "."," 9"]
 ];
 const board2= [
     ["5", "3", ".", "6", "7", "8", "9", "1", "2"],
-    ["6"," 7", "2", "1", "9", "5", ".", "4", "8"],
+    ["6","7", "2", "1", "9", "5", ".", "4", "8"],
     ["1", "9", "8", "3", ".", "2", "5", "6", "7"],
     [".", "5", "9", "7"," 6", "1", "4", "2", "."],
-    ["4"," 2", "6"," 8", "."," 3"," 7", "9", "1"],
-    ["7", "1", "3", ".", "2", "4", "8", "."," 6"],
+    ["4","2", "6","8", ".","3","7", "9", "1"],
+    ["7", "1", "3", ".", "2", "4", "8", ".","6"],
     ["9", "6", "1"," 5",".", "7", "2", "8", "4"],
-    ["2", "8", ".", "4"," 1", "9", "6", "3"," 5"],
+    ["2", "8", ".", "4"," 1", "9", "6", "3","5"],
     ["3", "4"," 5", "2", "8", "6"," 1", "."," 9"]
 ];
 const empty='.'
@@ -109,7 +109,7 @@ for(let i=0;i<9;i++){
     let startcol=Math.floor(col/3)*3
     for(let i=startrow;i<startrow+3;i++){
         for(let j=startcol;j<startcol+3;j++){
-            if(board[row][col]===number){
+            if(board[i][j]===number){
                 return false
             }
         }
@@ -140,16 +140,16 @@ function solveSudoku(board){
                 if(recurse(emptySpaceIndex+1)){
                     return true
                 }
-                    // Here lies the backtracking
+                 // Here lies the backtracking
 // if (recurse(emptySpaceIndex+1) does not work, restaurate after a failure board[row][col] to'.' so that another number will be tested
 
-               board[row][col]=empty
-                  
+                          board[row][col]=empty         
                }
-             
+              
+
         }
        console.log('Recheck the problem cause it does not respect sudoku rules')
-         return false
+       return false
     }
     recurse(0)
     return board
