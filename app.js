@@ -107,8 +107,8 @@ for(let i=0;i<9;i++){
 // check for block
     let startrow=Math.floor(row/3)*3
     let startcol=Math.floor(col/3)*3
-    for(let i=startrow;i<3;i++){
-        for(let j=startcol;j<3;j++){
+    for(let i=startrow;i<startrow+3;i++){
+        for(let j=startcol;j<startcol+3;j++){
             if(board[row][col]===number){
                 return false
             }
@@ -132,7 +132,7 @@ function solveSudoku(board){
             return true
         }
         let {row,col}=emptySpaces[emptySpaceIndex]
-        for(let i=0;i<=possiblenumbers.length;i++){
+        for(let i=0;i<possiblenumbers.length;i++){
             let number=possiblenumbers[i]
             if(isValid(row,col,number,board)){
                 board[row][col]=number
@@ -140,15 +140,16 @@ function solveSudoku(board){
                 if(recurse(emptySpaceIndex+1)){
                     return true
                 }
-                                    
-               }
-               // Here lies the backtracking
+                    // Here lies the backtracking
 // if (recurse(emptySpaceIndex+1) does not work, restaurate after a failure board[row][col] to'.' so that another number will be tested
 
                board[row][col]=empty
-
+                  
+               }
+             
         }
-       return console.log('Recheck the problem cause it does not respect sudoku rules')
+       console.log('Recheck the problem cause it does not respect sudoku rules')
+         return false
     }
     recurse(0)
     return board
